@@ -9,14 +9,15 @@
 <ion-content class="ion-padding">
   <h1>Aanand's Car Rental Form</h1>
 
-  <div *ngIf="errorMessage" style="background-color: rgb(202, 196, 179); padding: 10px; border: 1px solid #ccc;">
-    <ion-text color="danger">Please fix these issues with your form:</ion-text>
+  <div *ngIf="errorMessage.length >0" style="background-color: rgb(226, 222, 210); padding: 5px;">
     <br>
-    <ion-text color="danger">{{ errorMessage }}</ion-text>
-    <br>
+    <ion-text style="color: red;">Please fix these issues with your form:</ion-text>
+    <ul>
+      <li *ngFor="let messageShow of errorMessage"  style="color: red;">{{ messageShow }}</li>
+    </ul>
   </div>
 
-
+<br>
   <ion-label>What type of car?</ion-label>
   <div class="cartype">
     <ion-list>

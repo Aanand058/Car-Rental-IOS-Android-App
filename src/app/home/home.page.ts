@@ -10,7 +10,7 @@ import { ReservationCar } from '../models/reservation';
 export class HomePage {
 
   //Error Message Div 
-  errorMessage: string = '';
+  errorMessage: string[]= [];
 
   constructor(private router: Router,
     public reservation: ReservationCar
@@ -18,27 +18,28 @@ export class HomePage {
 
   buttonSubmit() {
 
-    this.errorMessage = '';
+    this.errorMessage = [];
 
     if (!this.reservation.carType) {
-      this.errorMessage += 'Car Type: You must select a car type.';
+      this.errorMessage.push('Car Type: You must select a car type.');
     }
 
     if (!this.reservation.date) {
-      this.errorMessage += 'Reservation Date: You must enter a valid date.';
+      this.errorMessage.push('Reservation Date: You must enter a valid date.');
     }
     if (!this.reservation.isValidDate(this.reservation.date)) {
-      this.errorMessage += 'Reservation Date: Date must be today or in the future.';
+      this.errorMessage.push('Reservation Date: Date must be today or in the future.');
     }
 
     if (this.reservation.hours < 1 || this.reservation.hours > 96) {
-      this.errorMessage += 'Hours: You must enter a value between 1-96.';
+      this.errorMessage.push('Hours: You must enter a value between 1-96.');
     }
 
-    if (this.errorMessage) {
-      this.errorMessage =  this.errorMessage;
+    if (this.errorMessage.length > 0) {
       return;
     }
+
+    this.errorMessage = [];
 
 
     // Navigatation with stringify the data 
@@ -53,7 +54,7 @@ export class HomePage {
 
   buttonReset() {
     this.reservation.reset();
-    this.errorMessage = '';
+    this.errorMessage = [];
   }
 
 
