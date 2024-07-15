@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Your Receipt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Reservation Confirmed</h1>
+
+  <div *ngIf="reservation">
+    <p><strong>Reservation Id:</strong> {{ generateReservationId() }}</p>
+    <p><strong>Car Type:</strong> {{ reservation.carType }}</p>
+    <p><strong>Length of Rental:</strong> {{ reservation.hours }} hours</p>
+    <p><strong>Reservation Date:</strong> {{ reservation.date }}</p>
+    <p><strong>Car Seat Required:</strong> {{ reservation.carSeat ? 'Yes' : 'No' }}</p>
+    <p><strong>Subtotal:</strong> ${{ calculateSubtotal().toFixed(2) }}</p>
+    <p><strong>Tax:</strong> ${{ calculateTax(calculateSubtotal()).toFixed(2) }}</p>
+    <p><strong>Total:</strong> ${{ calculateTotal(calculateSubtotal(), calculateTax(calculateSubtotal())).toFixed(2) }}</p>
+  </div>
+
+  <ion-button expand="full" (click)="router.navigate(['/'])">Back</ion-button>
+</ion-content>

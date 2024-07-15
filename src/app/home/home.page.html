@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Create Your Reservation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Aanand's Car Rental Form</h1>
+
+  <div *ngIf="errorMessage" style="background-color: rgb(202, 196, 179); padding: 10px; border: 1px solid #ccc;">
+    <ion-text color="danger">Please fix these issues with your form:</ion-text>
+    <br>
+    <ion-text color="danger">{{ errorMessage }}</ion-text>
+    <br>
+  </div>
+
+
+  <ion-label>What type of car?</ion-label>
+  <div class="cartype">
+    <ion-list>
+      <ion-item>
+        <ion-select [(ngModel)]="reservation.carType" aria-label="carType" value="sedan" required style="margin-left: 90%;">
+          <ion-select-option value="sedan">Sedan</ion-select-option>
+          <ion-select-option value="suv">SUV</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+  <br>
+
+  <ion-label>Enter the reservation date:</ion-label>
+  <div class="date">
+    <ion-input [(ngModel)]="reservation.date" name="date" type="date" required></ion-input>
+  </div>
+
+  <br>
+
+  <ion-label>Enter the number of hours:</ion-label>
+  <div class="hours">
+    <ion-input [(ngModel)]="reservation.hours" name="hours" type="number" min="1" max="96" required style="margin-left: 10%;"></ion-input>
+  </div>
+
+  <br>
+
+  <div>
+    <ion-label>Do you need a car seat?  </ion-label>
+    <ion-checkbox [(ngModel)]="reservation.carSeat" name="carSeat"></ion-checkbox>
+  </div>
+
+  <br>
+  <br>
+
+  <ion-button expand="flex" (click)="buttonSubmit()">Reserve</ion-button>
+  <ion-button expand="flex" fill="clear" (click)="buttonReset()">Reset</ion-button>
+
+</ion-content>
