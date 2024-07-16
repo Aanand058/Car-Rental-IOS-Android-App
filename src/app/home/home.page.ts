@@ -47,9 +47,6 @@ export class HomePage {
       state: { reservation: this.reservation.toJSON() }
     });
 
-
-
-
   }
 
   buttonReset() {

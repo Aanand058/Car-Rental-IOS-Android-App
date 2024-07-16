@@ -32,11 +32,9 @@ export class ReceiptScreenPage implements OnInit {
     } else if (this.reservation.carType === 'suv') {
       price = this.reservation.hours <= 5 ? 12 * this.reservation.hours : 100 * Math.ceil(this.reservation.hours / 24);
     }
-
     if (this.reservation.carSeat) {
       price += this.reservation.hours <= 10 ? 1 * this.reservation.hours : 10 * Math.ceil(this.reservation.hours / 24);
     }
-
     return price;
   }
 
