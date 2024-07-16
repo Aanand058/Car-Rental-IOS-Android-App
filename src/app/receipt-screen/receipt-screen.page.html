@@ -8,14 +8,14 @@
   <h1>Reservation Confirmed</h1>
 
   <div *ngIf="reservation">
-    <p><strong>Reservation Id:</strong> {{ generateReservationId() }}</p>
-    <p><strong>Car Type:</strong> {{ reservation.carType }}</p>
-    <p><strong>Length of Rental:</strong> {{ reservation.hours }} hours</p>
-    <p><strong>Reservation Date:</strong> {{ reservation.date }}</p>
-    <p><strong>Car Seat Required:</strong> {{ reservation.carSeat ? 'Yes' : 'No' }}</p>
-    <p><strong>Subtotal:</strong> ${{ calculateSubtotal().toFixed(2) }}</p>
-    <p><strong>Tax:</strong> ${{ calculateTax(calculateSubtotal()).toFixed(2) }}</p>
-    <p><strong>Total:</strong> ${{ calculateTotal(calculateSubtotal(), calculateTax(calculateSubtotal())).toFixed(2) }}</p>
+    <p><strong>Reservation Id: </strong> <span style="color: blue;">{{ generateReservationId() }}</span></p>
+    <p><strong>Car Type: </strong> <span style="color: blue;">{{ reservation.carType }}</span></p>
+    <p><strong>Length of Rental: </strong> <span style="color: blue;">{{ reservation.hours }} hours</span></p>
+    <p><strong>Reservation Date: </strong> <span style="color: blue;">{{ reservation.date }}</span></p>
+    <p><strong>Car Seat Required: </strong> <span style="color: blue;">{{ reservation.carSeat ? 'Yes' : 'No' }}</span></p>
+    <p><strong>Subtotal: </strong> <span style="color: blue;">${{ calculateSubtotal().toFixed(2) }}</span></p>
+    <p><strong>Tax: </strong> <span style="color: blue;">${{ calculateTax(calculateSubtotal()).toFixed(2) }}</span></p>
+    <p><strong>Total: </strong> <span style="color: blue;">${{ calculateTotal(calculateSubtotal(), calculateTax(calculateSubtotal())).toFixed(2) }}</span></p>
   </div>
 
   <ion-button expand="full" (click)="router.navigate(['/'])">Back</ion-button>
